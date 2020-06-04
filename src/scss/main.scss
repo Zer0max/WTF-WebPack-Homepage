@@ -2,6 +2,23 @@
 
 /*---- Reset ----*/
 
+//Darkmode
+//--background-color: #485461;
+//--background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+//--text-color: white
+
+:root {
+  --background-color: #9fb8ad;
+  --background-image:  linear-gradient(
+    141deg,
+    #9fb8ad 0%,
+    #1fc8db 51%,
+    #2cb5e8 75%
+  );
+  --text-color: black;
+}
+
+
 html {
   box-sizing: border-box;
 }
@@ -13,13 +30,9 @@ html {
 }
 
 body {
-  background-color: #fefefe;
-  background-image: linear-gradient(
-    141deg,
-    #9fb8ad 0%,
-    #1fc8db 51%,
-    #2cb5e8 75%
-  );
+  background-color: var(--background-color);
+  background-image:var(--background-image);
+  color: var(--text-color);
   min-height: 100%;
   margin: 0 auto;
 }

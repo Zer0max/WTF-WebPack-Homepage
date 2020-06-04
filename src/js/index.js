@@ -1,4 +1,4 @@
-import '../scss/main.scss';
+import "../scss/main.scss";
 
 /* place your code below */
 
@@ -15,15 +15,50 @@ function setCopyritheInformationIntoElement(fotterSelector) {
 
 function initHammburgerMenu() {
   const hammburegerElement = document.querySelector(".hammburger--js");
-  console.log(hammburegerElement);
 
-  hammburegerElement.addEventListener("click", () => {
-    const navigationElement = document.querySelector(".page-nav-header--js");
-    console.log(navigationElement);
-    navigationElement.classList.toggle("page-nav-header--open");
-  });
+  if (hammburegerElement) {
+    hammburegerElement.addEventListener("click", () => {
+      const navigationElement = document.querySelector(".page-nav-header--js");
+      console.log(navigationElement);
+      navigationElement.classList.toggle("page-nav-header--open");
+    });
+  }
 }
 
-this.printHackerNoteInConsole();
-this.setCopyritheInformationIntoElement(".footer-copyright--js");
-this.initHammburgerMenu();
+function initDarkmode() {
+  let isDarkModeOn = false;
+  const darkModeTriggerElement = document.querySelector(
+    ".dark-mode-trigger--js"
+  );
+  if (darkModeTriggerElement) {
+    darkModeTriggerElement.addEventListener("click", () => {
+      if (isDarkModeOn) {
+        document.documentElement.style.setProperty(
+          "--background-color",
+          "#9fb8ad"
+        );
+        document.documentElement.style.setProperty(
+          "--background-image",
+          "linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%)"
+        );
+        document.documentElement.style.setProperty("--text-color", "black");
+      } else {
+        document.documentElement.style.setProperty(
+          "--background-color",
+          "#485461"
+        );
+        document.documentElement.style.setProperty(
+          "--background-image",
+          "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+        );
+        document.documentElement.style.setProperty("--text-color", "white");
+      }
+      isDarkModeOn = !isDarkModeOn;
+    });
+  }
+}
+
+initDarkmode();
+printHackerNoteInConsole();
+setCopyritheInformationIntoElement(".footer-copyright--js");
+initHammburgerMenu();
